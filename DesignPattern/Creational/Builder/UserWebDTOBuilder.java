@@ -7,28 +7,33 @@ public class UserWebDTOBuilder implements UserDTOBuilder{
 
     private String firstName;
     private String lastName;
+    private String age;
+    private String address;
+    private UserWebDTO dto;
+
     @Override
     public UserDTO build() {
-        // TODO Auto-generated method stub
-        return null;
+        dto=new UserWebDTO(this.firstName+" "+this.lastName, this.address, this.age);
+        return dto;
     }
 
     @Override
     public UserDTO getUserDTO() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.dto;
     }
 
     @Override
     public UserDTOBuilder withAddress(Address address) {
-        // TODO Auto-generated method stub
-        return null;
+        this.address=address.getHouseNumber()+", "+address.getStreet()
+                    +", "+address.getCity()+", "+address.getState()+", "+address.getZipCode();
+        return this;
     }
 
     @Override
     public UserDTOBuilder withBirthday(LocalDate date) {
         Period ageInYears=Period.between(date, LocalDate.now());
-        return null;
+        age=Integer.toString(ageInYears.getYears());
+        return this;
     }
 
     @Override

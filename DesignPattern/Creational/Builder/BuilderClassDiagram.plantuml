@@ -1,0 +1,43 @@
+@startuml Builder Class Diagram
+
+class UserDTO{
+    String getName()
+    String getAddress()
+    String getAge()
+}
+class UserWebDTO{
+
+    String getName()
+    String getAddress()
+    String getAge()
+}
+class UserDTOBuilder{
+
+    UserDTOBuilder withFirstName()
+    UserDTOBuilder withLastName()
+    UserDTOBuilder withBirthday()
+    UserDTOBuilder withAddress()
+
+    UserDTO build()
+    UserDTO getUserDTO()
+}
+class UserWebDTOBuilder{
+    UserDTOBuilder withFirstName()
+    UserDTOBuilder withLastName()
+    UserDTOBuilder withBirthday()
+    UserDTOBuilder withAddress()
+
+    UserDTO build()
+    UserDTO getUserDTO()
+}
+class client
+
+client - UserDTOBuilder
+UserDTO <|.. UserWebDTO : implement
+UserDTOBuilder <|.. UserWebDTOBuilder: implement
+UserWebDTOBuilder *-- UserWebDTO: aggregation
+
+
+
+@enduml
+

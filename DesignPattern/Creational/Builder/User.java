@@ -38,11 +38,7 @@ public class User{
     }
 
     public void setAddress(Address address){
-        this.address.setHouseNumber(address.getHouseNumber());
-        this.address.setStreet(address.getStreet());
-        this.address.setZipCode(address.getZipCode());
-        this.address.setCity(address.getCity());
-        this.address.setState(address.getState());
+        this.address=address;
     }
 
     
