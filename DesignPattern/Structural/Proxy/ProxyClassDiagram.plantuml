@@ -1,0 +1,36 @@
+@startuml Proxy Class Diagram
+
+class Image<interface>{
+    void setLocation()
+    Point getLocation()
+    void render()
+}
+class BitmapImage{
+
+    void setLocation()
+    Point getLocation()
+    void render()
+}
+class ImageProxy{
+
+    void setLocation()
+    Point getLocation()
+    void render()
+}
+class ImageFactory{
+    getImage()
+}
+class client
+
+client ..|> ImageFactory
+ImageFactory --|>Image
+ImageProxy ..|> Image: implement
+BitmapImage ..|> Image : implement
+
+
+BitmapImage <|-- ImageProxy: aggregation
+
+
+
+@enduml
+
