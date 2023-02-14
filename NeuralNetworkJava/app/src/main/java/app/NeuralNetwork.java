@@ -1,11 +1,7 @@
-package neuralNetwork;
+package app;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import org.w3c.dom.html.HTMLDivElement;
-
-import matrix.Matrix;
 
 public class NeuralNetwork {
     private Matrix[] weights, bias, hidden;
@@ -15,6 +11,7 @@ public class NeuralNetwork {
         weights=new Matrix[nodesInLayers.length-1];
         bias=new Matrix[nodesInLayers.length-1];
         hidden=new Matrix[nodesInLayers.length];
+        
         for (int i=0;i<nodesInLayers.length-1;i++){
             weights[i]=new Matrix(nodesInLayers[i+1], nodesInLayers[i]);
             bias[i]=new Matrix(nodesInLayers[i+1], 1);

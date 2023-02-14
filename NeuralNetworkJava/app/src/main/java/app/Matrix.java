@@ -1,7 +1,6 @@
-package matrix;
+package app;
 import java.lang.Math;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Matrix {

@@ -4,8 +4,6 @@
 package app;
 import java.util.ArrayList;
 
-import neuralNetwork.NeuralNetwork;
-
 public class App {
     public String getGreeting() {
         return "Hello World!";
