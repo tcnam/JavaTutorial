@@ -15,11 +15,8 @@ public class NeuralNetwork {
         for (int i=0;i<nodesInLayers.length-1;i++){
             weights[i]=new Matrix(nodesInLayers[i+1], nodesInLayers[i]);
             bias[i]=new Matrix(nodesInLayers[i+1], 1);
-            if(i!=0){
+            if(i!=0&&i!=nodesInLayers.length-1){
                 hidden[i]=new Matrix(nodesInLayers[i], 1);
-            }
-            if(i!=nodesInLayers.length-1){
-                hidden[i+1]=new Matrix(nodesInLayers[i+1],1);
             }
         }
     }
@@ -44,5 +41,17 @@ public class NeuralNetwork {
         output=weights[weights.length-1].multiply(hidden[weights.length-1]);
         output.sigmoid();
         return output.toArray();
+    }
+
+    public void train(double[] x, double[] y){
+        Matrix input=Matrix.fromArray(x);
+        Matrix actualOutput=Matrix.fromArray(predict(x));
+        Matrix expectedOutput=Matrix.fromArray(y);
+
+        Matrix cost=expectedOutput.crossEntropyLossFunc(actualOutput);
+        Matrix gradient=actualOutput.dsigmoid();
+
+
+
     }
 }
