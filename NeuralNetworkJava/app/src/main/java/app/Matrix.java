@@ -43,7 +43,7 @@ public class Matrix {
     public Matrix add(Matrix m){
         Matrix result=new Matrix(this.rows,this.cols);
         if(this.cols!=m.getCols()||this.rows!=m.getRows()){
-            System.out.println("Hai ma tran khong cung kich thuoc");
+            System.out.println("Hai ma tran khong cung kich thuoc de cong");
             return result;
         }
         for(int i=0;i<rows;i++){
@@ -65,7 +65,7 @@ public class Matrix {
     public static Matrix subtract(Matrix a, Matrix b){
         Matrix resultM=new Matrix(a.getRows(),a.getCols());
         if(a.getCols()!=b.getCols()||a.getRows()!=b.getRows()){
-            System.out.println("Hai ma tran khong cung kich thuoc");
+            System.out.println("Hai ma tran khong cung kich thuoc de tru");
             return resultM;
         }
         for (int i=0;i<a.getRows();i++){

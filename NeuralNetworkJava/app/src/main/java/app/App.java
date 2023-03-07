@@ -21,6 +21,7 @@ public class App {
         };
         int []nodesInLayers={2,10,1};
         NeuralNetwork neuralNetwork=new NeuralNetwork(nodesInLayers);
+        neuralNetwork.fit(x,y,50000);
         for (double d[]:x){
             ArrayList<Double> output = neuralNetwork.predict(d);
             System.out.println(output.toString());
